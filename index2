@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Invisible Factory: 7-Day AI Search Hustle Start-Up | FreeGameGuys</title>
+<meta name="description" content="Get the free 7-Day Digital Product Launch Starter Kit and the $17 Traffic Automation System. No ads. No viral luck. Just systems that work while you sleep."/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #09090f;
+    --surface: #111118;
+    --card: #16161f;
+    --border: #1f1f2e;
+    --gold: #f5c842;
+    --gold2: #c8920a;
+    --red: #ff4444;
+    --green: #00e87a;
+    --blue: #38bdf8;
+    --text: #ededf5;
+    --muted: #5a5a7a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 9999; opacity: 0.5;
+  }
+
+  /* NAV */
+  .top-bar {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(9,9,15,0.95);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px); z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.8rem 2rem;
+  }
+  .top-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.1em; color: var(--gold); }
+  .top-cta {
+    background: var(--gold); color: #000;
+    font-weight: 700; font-size: 0.75rem;
+    padding: 0.5rem 1.2rem; border-radius: 6px;
+    text-decoration: none; letter-spacing: 0.05em;
+    text-transform: uppercase; transition: all 0.2s;
+  }
+  .top-cta:hover { background: var(--gold2); transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 7rem 2rem 4rem; position: relative; overflow: hidden;
+  }
+  .hero-glow {
+    position: absolute; top: 15%; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 400px;
+    background: radial-gradient(ellipse, rgba(245,200,66,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 860px; margin: 0 auto; width: 100%; position: relative; }
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.2rem; font-weight: 600;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 10vw, 7rem);
+    line-height: 0.9; letter-spacing: 0.02em; margin-bottom: 1.5rem;
+  }
+  .hero h1 .gold { color: var(--gold); }
+  .hero h1 .dim { color: var(--muted); }
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: #8888aa; max-width: 580px; margin-bottom: 2rem; line-height: 1.7;
+  }
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; }
+  .h-badge {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 6px; padding: 0.5rem 1rem;
+    font-size: 0.78rem; font-weight: 600; color: var(--gold);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: var(--gold); color: #000;
+    font-family: 'DM Sans', sans-serif; font-weight: 700;
+    font-size: 1rem; padding: 1rem 2.5rem; border-radius: 8px;
+    text-decoration: none; transition: all 0.2s;
+    margin-right: 1rem; margin-bottom: 0.5rem;
+  }
+  .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: transparent; color: var(--text);
+    border: 1px solid var(--border);
+    font-family: 'DM Sans', sans-serif; font-weight: 600;
+    font-size: 0.9rem; padding: 1rem 2rem; border-radius: 8px;
+    text-decoration: none; transition: all 0.2s;
+    margin-bottom: 0.5rem;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* SECTIONS */
+  .section { padding: 5rem 2rem; }
+  .section-inner { max-width: 860px; margin: 0 auto; }
+  .s-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; margin-bottom: 0.6rem;
+  }
+  .s-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1; letter-spacing: 0.02em; margin-bottom: 1rem;
+  }
+  .s-title .gold { color: var(--gold); }
+  .s-title .red { color: var(--red); }
+  .s-lead { font-size: 0.95rem; color: #8888aa; max-width: 620px; margin-bottom: 2rem; line-height: 1.7; }
+
+  /* PROBLEM */
+  .problem-section {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .problem-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin: 1.5rem 0; }
+  .problem-list li {
+    display: flex; align-items: flex-start; gap: 0.8rem;
+    padding: 0.8rem 1rem; background: var(--card);
+    border: 1px solid var(--border); border-radius: 8px;
+    font-size: 0.88rem; line-height: 1.5;
+  }
+  .p-x { color: var(--red); font-weight: 700; font-size: 1rem; flex-shrink: 0; }
+  .truth-box {
+    background: linear-gradient(135deg, rgba(245,200,66,0.08) 0%, transparent 100%);
+    border: 1px solid rgba(245,200,66,0.2);
+    border-radius: 12px; padding: 2rem; margin: 2rem 0;
+  }
+  .truth-box .tb-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 0.8rem; }
+  .truth-box .tb-text { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.5rem, 4vw, 2.5rem); line-height: 1.1; }
+  .pull-quote {
+    border-left: 3px solid var(--gold); padding: 1.2rem 1.5rem;
+    margin: 2rem 0; background: var(--surface); border-radius: 0 8px 8px 0;
+  }
+  .pull-quote p { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.3rem, 3vw, 2rem); line-height: 1.2; }
+
+  /* REALITY CHECK */
+  .reality-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem; margin: 2rem 0;
+  }
+  .reality-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.5rem; text-align: center;
+  }
+  .reality-stat {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem; color: var(--red); line-height: 1;
+  }
+  .reality-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.3rem; }
+
+  /* DAY CARDS */
+  .day-section {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .day-section:nth-child(even) { background: var(--surface); }
+  .day-header {
+    display: flex; align-items: center; gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .day-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem; line-height: 1; color: var(--gold);
+    min-width: 80px;
+  }
+  .day-meta .day-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600;
+  }
+  .day-meta .day-title-main {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem); line-height: 1;
+  }
+  .day-content { font-size: 0.92rem; color: #aaaacc; line-height: 1.8; }
+  .day-content p { margin-bottom: 1rem; }
+  .day-content strong { color: var(--text); }
+  .day-content ul { margin: 1rem 0; padding-left: 1.5rem; }
+  .day-content li { margin-bottom: 0.5rem; }
+  .action-box {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.2rem 1.5rem; margin: 1.5rem 0;
+  }
+  .action-box .ab-label {
+    font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--green); font-weight: 700; margin-bottom: 0.5rem;
+  }
+  .action-box ul { list-style: none; }
+  .action-box li {
+    display: flex; align-items: flex-start; gap: 0.6rem;
+    font-size: 0.85rem; padding: 0.3rem 0;
+  }
+  .action-box .check { color: var(--green); font-weight: 700; flex-shrink: 0; }
+  .tool-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+  .tool-pill {
+    background: rgba(245,200,66,0.08); border: 1px solid rgba(245,200,66,0.2);
+    color: #c8b060; font-size: 0.7rem; font-weight: 600;
+    padding: 0.2rem 0.6rem; border-radius: 4px;
+  }
+  .free-badge {
+    display: inline-block; background: rgba(0,232,122,0.1);
+    border: 1px solid rgba(0,232,122,0.3); color: var(--green);
+    font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; padding: 0.2rem 0.6rem;
+    border-radius: 4px; margin-left: 0.5rem;
+  }
+  .mid-cta {
+    text-align: center; padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(245,200,66,0.04) 0%, transparent 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* BONUS TOOLS */
+  .bonus-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.8rem; margin: 1.5rem 0;
+  }
+  .bonus-item {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 1rem; text-align: center;
+  }
+  .bonus-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .bonus-name { font-weight: 700; font-size: 0.85rem; margin-bottom: 0.3rem; }
+  .bonus-desc { font-size: 0.75rem; color: var(--muted); }
+  .bonus-price { font-size: 0.7rem; color: var(--green); font-weight: 700; margin-top: 0.3rem; }
+
+  /* UPGRADE */
+  .upgrade-section {
+    background: linear-gradient(180deg, var(--bg) 0%, #0d0d18 100%);
+    border-top: 1px solid var(--border);
+  }
+  .upgrade-box {
+    background: var(--card);
+    border: 2px solid var(--gold);
+    border-radius: 16px; padding: 2.5rem;
+    position: relative; overflow: hidden;
+  }
+  .upgrade-box::before {
+    content: 'BEST VALUE';
+    position: absolute; top: 1.2rem; right: -2rem;
+    background: var(--gold); color: #000;
+    font-size: 0.6rem; font-weight: 800; letter-spacing: 0.15em;
+    padding: 0.2rem 2.5rem; transform: rotate(45deg);
+  }
+  .price-row { display: flex; align-items: baseline; gap: 0.8rem; margin: 1.5rem 0; }
+  .price-old { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--muted); text-decoration: line-through; }
+  .price-new { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: var(--gold); line-height: 1; }
+  .price-label { font-size: 0.8rem; color: var(--muted); }
+  .includes-list { list-style: none; margin: 1.5rem 0; }
+  .includes-list li {
+    display: flex; align-items: flex-start; gap: 0.8rem;
+    padding: 0.6rem 0; font-size: 0.9rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .includes-list li:last-child { border-bottom: none; }
+  .il-check { color: var(--green); font-weight: 700; font-size: 1.1rem; flex-shrink: 0; }
+
+  /* PROOF */
+  .proof-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem; margin: 2rem 0;
+  }
+  .proof-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.5rem;
+  }
+  .proof-stat { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--gold); line-height: 1; }
+  .proof-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.3rem; }
+  .proof-desc { font-size: 0.82rem; color: #8888aa; margin-top: 0.5rem; line-height: 1.5; }
+
+  /* FAQ */
+  .faq-list { display: flex; flex-direction: column; gap: 0.5rem; margin: 2rem 0; }
+  .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .faq-q {
+    padding: 1rem 1.2rem; cursor: pointer;
+    font-weight: 700; font-size: 0.9rem;
+    display: flex; justify-content: space-between; align-items: center;
+    transition: color 0.2s;
+  }
+  .faq-q:hover { color: var(--gold); }
+  .faq-q .arrow { color: var(--gold); font-size: 1.2rem; transition: transform 0.3s; }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0 1.2rem; }
+  .faq-a p { padding-bottom: 1rem; font-size: 0.85rem; color: #8888aa; line-height: 1.6; }
+  .faq-item.open .faq-a { max-height: 200px; }
+  .faq-item.open .arrow { transform: rotate(180deg); }
+
+  /* FINAL CTA */
+  .final-cta {
+    background: linear-gradient(135deg, rgba(245,200,66,0.06) 0%, transparent 100%);
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  .guarantee-badge {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: rgba(0,232,122,0.08); border: 1px solid rgba(0,232,122,0.2);
+    border-radius: 8px; padding: 0.8rem 1.5rem;
+    font-size: 0.82rem; font-weight: 600; color: var(--green);
+    margin-top: 1.5rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--surface); border-top: 1px solid var(--border);
+    padding: 2.5rem 2rem; text-align: center;
+  }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--gold); margin-bottom: 0.8rem; letter-spacing: 0.1em; }
+  .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem; }
+  .footer-links a {
+    font-size: 0.75rem; color: var(--muted); text-decoration: none;
+    font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 0.72rem; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-logo">FreeGameGuys</div>
+  <a href="http://llclick.com/bg2p3jmw/" class="top-cta">Get The $17 System →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">FreeGameGuys · The Invisible Factory</div>
+    <h1>
+      THE <span class="gold">7-DAY</span><br/>
+      AI SEARCH<br/>
+      <span class="dim">HUSTLE</span>
+    </h1>
+    <p class="hero-sub">The complete 7-Day Digital Product Launch system — free, right here on this page. Read it. Execute it. Then grab the $17 Traffic Engine that automates everything. No ads. No viral luck. No excuses.</p>
+    <div class="hero-badges">
+      <div class="h-badge">🎁 Full 7-Day Plan Below</div>
+      <div class="h-badge">⚡ $17 Automation Upgrade</div>
+      <div class="h-badge">🤖 AI-Powered</div>
+      <div class="h-badge">$0 Ad Spend</div>
+    </div>
+    <a href="#reality" class="btn-primary">Read The Free Plan ↓</a>
+    <a href="http://llclick.com/bg2p3jmw/" class="btn-secondary">Skip to $17 System →</a>
+  </div>
+</section>
+
+<!-- REALITY CHECK -->
+<section class="section problem-section" id="reality">
+  <div class="section-inner">
+    <div class="s-eyebrow">The Reality Check</div>
+    <div class="s-title">Before We Start — Let's Kill The <span class="red">Myths</span></div>
+    <p class="s-lead">Most beginners fail before they even launch. Not because they're lazy or dumb — because they've been fed lies by an industry that profits from their confusion.</p>
+
+    <div class="reality-grid">
+      <div class="reality-card">
+        <div class="reality-stat">95%</div>
+        <div class="reality-label">Failure Rate</div>
+      </div>
+      <div class="reality-card">
+        <div class="reality-stat">$0</div>
+        <div class="reality-label">Revenue Before Quitting</div>
+      </div>
+      <div class="reality-card">
+        <div class="reality-stat">30</div>
+        <div class="reality-label">Days Before Giving Up</div>
+      </div>
+    </div>
+
+    <ul class="problem-list">
+      <li><span class="p-x">✗</span><strong>Myth: You need thousands of followers.</strong> You don't. You need the right 50 people who have the problem your product solves.</li>
+      <li><span class="p-x">✗</span><strong>Myth: You need expensive tools.</strong> Every tool in this system is free. The $99/month software industry is designed to drain you before you earn.</li>
+      <li><span class="p-x">✗</span><strong>Myth: You need to go viral.</strong> Viral is a vanity metric. Search is a revenue metric. One Pinterest pin can drive traffic for 5 years. One viral TikTok dies in 48 hours.</li>
+      <li><span class="p-x">✗</span><strong>Myth: You need to be an expert.</strong> You need to be one step ahead of your customer. That's it. If you've solved a problem, you can teach someone else to solve it.</li>
+      <li><span class="p-x">✗</span><strong>Myth: It takes months to launch.</strong> It takes 7 days. This system proves it.</li>
+    </ul>
+
+    <div class="truth-box">
+      <div class="tb-label">The Truth</div>
+      <div class="tb-text">You don't need more information.<br/>You need a <span style="color:var(--gold);">system that removes the guesswork</span> and tells you exactly what to do each day.</div>
+    </div>
+
+    <div class="pull-quote">
+      <p>"The gap between where you are and your first sale isn't knowledge. It's execution."</p>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 1 -->
+<section class="section day-section" id="day1">
+  <div class="section-inner">
+    <div class="day-header">
+      <div class="day-number">01</div>
+      <div class="day-meta">
+        <div class="day-tag">Foundation</div>
+        <div class="day-title-main">Pick Your Profitable Topic</div>
+      </div>
+    </div>
+    <div class="day-content">
+      <p>Before you build anything, you need to confirm that people actually want what you're about to create. This isn't about passion — it's about <strong>demand validation</strong>.</p>
+
+      <p>Most beginners skip this step. They spend weeks creating a product nobody asked for, then wonder why nobody buys it. We're not doing that.</p>
+
+      <p><strong>The Quick Validation Trick:</strong></p>
+      <ul>
+        <li>Open <strong>Google</strong> and start typing your topic. Look at the autocomplete suggestions — those are real searches from real people.</li>
+        <li>Check <strong>Pinterest</strong> search bar. Type your niche and see what Pinterest suggests. If Pinterest has suggestions, people are actively searching.</li>
+        <li>Look at <strong>"People Also Ask"</strong> on Google. These are questions people are literally typing. Your product should answer one of them.</li>
+        <li>Browse <strong>Reddit</strong> threads in your niche. What problems do people keep posting about? That's your product idea.</li>
+      </ul>
+
+      <p><strong>The validation rule is simple:</strong> If you can find 3+ places where people are already asking about your topic, there's demand. If you can't find anyone asking — pick a different topic.</p>
+
+      <div class="action-box">
+        <div class="ab-label">✅ Day 1 Action Items</div>
+        <ul>
+          <li><span class="check">→</span>Pick 3 potential topics</li>
+          <li><span class="check">→</span>Validate each one using Google autocomplete + Pinterest search + Reddit</li>
+          <li><span class="check">→</span>Choose the one with the most visible demand</li>
+          <li><span class="check">→</span>Write one sentence: "This product helps [WHO] solve [WHAT PROBLEM]"</li>
+        </ul>
+      </div>
+
+      <div class="tool-pills">
+        <span class="tool-pill">Google Search</span>
+        <span class="tool-pill">Pinterest</span>
+        <span class="tool-pill">Reddit</span>
+        <span class="tool-pill">Google Trends</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 2 -->
+<section class="section day-section" id="day2">
+  <div class="section-inner">
+    <div class="day-header">
+      <div class="day-number">02</div>
+      <div class="day-meta">
+        <div class="day-tag">Creation</div>
+        <div class="day-title-main">Create Your Digital Product</div>
+      </div>
+    </div>
+    <div class="day-content">
+      <p>Your first product doesn't need to be a masterpiece. It needs to be <strong>useful, specific, and finished</strong>. Perfectionism kills more businesses than bad ideas do.</p>
+
+      <p><strong>What to create:</strong></p>
+      <ul>
+        <li><strong>PDF Guide</strong> — solve one specific problem in 5-15 pages</li>
+        <li><strong>Checklist</strong> — a step-by-step action list people can follow</li>
+        <li><strong>Template Pack</strong> — done-for-you templates they can customize</li>
+        <li><strong>Toolkit</strong> — a curated list of tools + how to use them</li>
+      </ul>
+
+      <p><strong>How to build it fast:</strong></p>
+      <ul>
+        <li>Use <strong>ChatGPT or Claude</strong> to draft the content outline</li>
+        <li>Use <strong>Canva free tier</strong> to design it professionally</li>
+        <li>Use <strong>your own experience</strong> to add personality and real examples</li>
+      </ul>
+
+      <p>The AI writes the structure. You add the soul. That combination creates something that looks professional but sounds human. Most people do one or the other — you're doing both.</p>
+
+      <div class="action-box">
+        <div class="ab-label">✅ Day 2 Action Items</div>
+        <ul>
+          <li><span class="check">→</span>Choose your product format (PDF, checklist, template, or toolkit)</li>
+          <li><span class="check">→</span>Use AI to draft the content outline</li>
+          <li><span class="check">→</span>Design it in Canva — use a professional template</li>
+          <li><span class="check">→</span>Edit for personality — add your voice, your examples, your opinions</li>
+          <li><span class="check">→</span>Export as PDF</li>
+        </ul>
+      </div>
+
+      <div class="tool-pills">
+        <span class="tool-pill">ChatGPT / Claude</span>
+        <span class="tool-pill">Canva Free</span>
+        <span class="tool-pill">Google Docs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 3 -->
+<section class="section day-section" id="day3">
+  <div class="section-inner">
+    <div class="day-header">
+      <div class="day-number">03</div>
+      <div class="day-meta">
+        <div class="day-tag">Infrastructure</div>
+        <div class="day-title-main">Set Up Your Sales Hub</div>
+      </div>
+    </div>
+    <div class="day-content">
+      <p>You need exactly three things to start selling today. Not a full website. Not a Shopify store. Not a $200/month platform. Three things:</p>
+
+      <p><strong>1. A payment form</strong> — JotForm with PayPal integration. Free. Customers fill out name, email, pay. Done.</p>
+
+      <p><strong>2. A delivery method</strong> — Beacons or Google Drive. Customer pays, they get a link to download. Automatic.</p>
+
+      <p><strong>3. A landing page</strong> — Blogger, Google Sites, or a simple Beacons page. One headline. One description. One buy button. Nothing else.</p>
+
+      <p><strong>The critical rule:</strong> Your sales page needs ONE action. Not "follow me on TikTok AND subscribe to my YouTube AND join my Discord AND buy my product." One action. Buy the product. Remove everything else.</p>
+
+      <div class="action-box">
+        <div class="ab-label">✅ Day 3 Action Items</div>
+        <ul>
+          <li><span class="check">→</span>Create JotForm with name + email + PayPal payment</li>
+          <li><span class="check">→</span>Upload product to Beacons or Google Drive</li>
+          <li><span class="check">→</span>Build landing page — one headline, one CTA, one price</li>
+          <li><span class="check">→</span>Test the entire flow yourself — pay, receive, download</li>
+        </ul>
+      </div>
+
+      <div class="tool-pills">
+        <span class="tool-pill">JotForm Free</span>
+        <span class="tool-pill">PayPal</span>
+        <span class="tool-pill">Beacons Free</span>
+        <span class="tool-pill">Blogger Free</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 4 -->
+<section class="section day-section" id="day4">
+  <div class="section-inner">
+    <div class="day-header">
+      <div class="day-number">04</div>
+      <div class="day-meta">
+        <div class="day-tag">Lead Capture</div>
+        <div class="day-title-main">Build Your Lead Magnet</div>
+      </div>
+    </div>
+    <div class="day-content">
+      <p>Not everyone is ready to buy on the first visit. That's normal. What's NOT normal is letting them leave without capturing their email.</p>
+
+      <p><strong>The lead magnet formula:</strong> Give away 80% of the value for free. The remaining 20% — the implementation, the shortcuts, the templates — that's what people pay for.</p>
+
+      <p>This page you're reading right now is a lead magnet. We're giving you the entire 7-Day plan for free. The $17 upgrade is the engine that automates everything. See how that works?</p>
+
+      <p><strong>Lead magnet ideas:</strong></p>
+      <ul>
+        <li>A free checklist version of your paid guide</li>
+        <li>A "starter" version with 3 of the 10 strategies</li>
+        <li>A free tool list that pairs with your paid product</li>
+        <li>A case study showing results</li>
+      </ul>
+
+      <div class="action-box">
+        <div class="ab-label">✅ Day 4 Action Items</div>
+        <ul>
+          <li><span class="check">→</span>Create a free version of your product (shorter, less detailed)</li>
+          <li><span class="check">→</span>Set up email capture form (JotForm or MailerLite)</li>
+          <li><span class="check">→</span>Connect free download to email signup</li>
+          <li><span class="check">→</span>Write a thank-you email that introduces the paid product</li>
+        </ul>
+      </div>
+
+      <div class="tool-pills">
+        <span class="tool-pill">MailerLite Free</span>
+        <span class="tool-pill">JotForm Free</span>
+        <span class="tool-pill">Canva Free</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 5 -->
+<section class="section day-section" id="day5">
+  <div class="section-inner">
+    <div class="day-header">
+      <div class="day-number">05</div>
+      <div class="day-meta">
+        <div class="day-tag">Traffic</div>
+        <div class="day-title-main">Pick ONE Traffic Source</div>
+      </div>
+    </div>
+    <div class="day-content">
+      <p><strong>This is where 90% of beginners fail.</strong> They try to be everywhere — TikTok, Instagram, YouTube, Twitter, Pinterest, Facebook, Reddit, Medium — and master nothing.</p>
+
+      <p>Pick ONE platform. Stay on it for 30 days. Master it. Then expand.</p>
+
+      <p><strong>Our recommendation: Pinterest.</strong> Here's why:</p>
+      <ul>
+        <li>Pinterest is a search engine, not social media — people come with buying intent</li>
+        <li>Pin lifespan: 3 months to 5 years (vs TikTok's 48 hours)</li>
+        <li>You don't need to show your face</li>
+        <li>You don't need followers to get discovered</li>
+        <li>Pins compound over time — more pins = more traffic = more sales</li>
+      </ul>
+
+      <p><strong>The Pinterest system:</strong></p>
+      <ul>
+        <li>Design 5 pins per day in Canva (batch create weekly)</li>
+        <li>Each pin links to a blog post or landing page</li>
+        <li>Each blog post has ONE CTA to your product</li>
+        <li>Schedule with Buffer free tier</li>
+      </ul>
+
+      <div class="action-box">
+        <div class="ab-label">✅ Day 5 Action Items</div>
+        <ul>
+          <li><span class="check">→</span>Set up Pinterest Business account (free)</li>
+          <li><span class="check">→</span>Create 3 boards related to your niche</li>
+          <li><span class="check">→</span>Design your first 5 pins in Canva</li>
+          <li><span class="check">→</span>Write SEO-optimized pin descriptions with target keywords</li>
+          <li><span class="check">→</span>Post all 5 pins</li>
+        </ul>
+      </div>
+
+      <div class="tool-pills">
+        <span class="tool-pill">Pinterest Business</span>
+        <span class="tool-pill">Canva Free</span>
+        <span class="tool-pill">Buffer Free</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 6 -->
+<section class="section day-section" id="day6">
+  <div class="section-inner">
+    <div class="day-header">
+      <div class="day-number">06</div>
+      <div class="day-meta">
+        <div class="day-tag">List Building</div>
+        <div class="day-title-main">Capture Emails</div>
+      </div>
+    </div>
+    <div class="day-content">
+      <p><strong>Social media is rented land. Your email list is owned land.</strong></p>
+
+      <p>Instagram can change its algorithm tomorrow. TikTok could get banned. Pinterest could deprioritize your content. You can't control any of that.</p>
+
+      <p>But your email list? That's yours forever. Nobody can take it away. Nobody can throttle your reach. Every subscriber is a direct line to a potential customer.</p>
+
+      <p><strong>The email system:</strong></p>
+      <ul>
+        <li><strong>MailerLite</strong> — free up to 1,000 subscribers. That's more than enough to start.</li>
+        <li><strong>Lead magnet</strong> — the free content you created on Day 4 is the bait</li>
+        <li><strong>Welcome email</strong> — introduce yourself, deliver the freebie, mention the paid product</li>
+        <li><strong>Follow-up sequence</strong> — 3 emails over 7 days that build trust and present the offer</li>
+      </ul>
+
+      <div class="action-box">
+        <div class="ab-label">✅ Day 6 Action Items</div>
+        <ul>
+          <li><span class="check">→</span>Sign up for MailerLite (free)</li>
+          <li><span class="check">→</span>Create signup form connected to your lead magnet</li>
+          <li><span class="check">→</span>Write welcome email with freebie + product mention</li>
+          <li><span class="check">→</span>Add email signup link to your Pinterest bio and blog posts</li>
+        </ul>
+      </div>
+
+      <div class="tool-pills">
+        <span class="tool-pill">MailerLite Free</span>
+        <span class="tool-pill">N8N Automation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 7 -->
+<section class="section day-section" id="day7">
+  <div class="section-inner">
+    <div class="day-header">
+      <div class="day-number">07</div>
+      <div class="day-meta">
+        <div class="day-tag">Launch Day</div>
+        <div class="day-title-main">Launch</div>
+      </div>
+    </div>
+    <div class="day-content">
+      <p style="font-size:1.1rem;"><strong>You don't need 10,000 followers. You need the right 50 people who have the problem your product solves.</strong></p>
+
+      <p>Launch isn't about making noise. It's about putting your product in front of people who are already looking for it. That's what the last 6 days prepared you for.</p>
+
+      <p><strong>Launch day actions:</strong></p>
+      <ul>
+        <li>Post 5 fresh Pinterest pins linking to your sales page</li>
+        <li>Publish a blog post that solves the problem your product addresses — with a CTA at the bottom</li>
+        <li>Send an email to your list announcing the product</li>
+        <li>Post in 2-3 relevant Facebook groups or Reddit threads (value first, link second)</li>
+        <li>Share a personal post on your social media explaining why you built this</li>
+      </ul>
+
+      <p><strong>After launch:</strong></p>
+      <ul>
+        <li>Document everything — screenshots, analytics, wins, losses</li>
+        <li>Every win becomes content for tomorrow</li>
+        <li>Every loss becomes a lesson for the next iteration</li>
+      </ul>
+
+      <div class="action-box">
+        <div class="ab-label">✅ Day 7 Action Items</div>
+        <ul>
+          <li><span class="check">→</span>Post 5 Pinterest pins to sales page</li>
+          <li><span class="check">→</span>Publish launch blog post with CTA</li>
+          <li><span class="check">→</span>Send email blast to your list</li>
+          <li><span class="check">→</span>Post in 2-3 communities (value first)</li>
+          <li><span class="check">→</span>Screenshot and document everything</li>
+        </ul>
+      </div>
+
+      <div class="pull-quote" style="margin-top:1.5rem;">
+        <p>"Your first sale won't come from the algorithm. It'll come from one person who found your content because you put it where they were already looking."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BONUS TOOLS -->
+<section class="section" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="section-inner">
+    <div class="s-eyebrow">Your Free Toolkit</div>
+    <div class="s-title">The <span class="gold">$0 Tool Stack</span></div>
+    <p class="s-lead">Every tool needed to execute this 7-day plan. All free. No credit card required.</p>
+
+    <div class="bonus-grid">
+      <div class="bonus-item">
+        <div class="bonus-icon">📝</div>
+        <div class="bonus-name">Canva</div>
+        <div class="bonus-desc">Product design, pin creation, lead magnets</div>
+        <div class="bonus-price">FREE</div>
+      </div>
+      <div class="bonus-item">
+        <div class="bonus-icon">📋</div>
+        <div class="bonus-name">JotForm</div>
+        <div class="bonus-desc">Payment forms with PayPal integration</div>
+        <div class="bonus-price">FREE</div>
+      </div>
+      <div class="bonus-item">
+        <div class="bonus-icon">📌</div>
+        <div class="bonus-name">Pinterest</div>
+        <div class="bonus-desc">Search-driven evergreen traffic</div>
+        <div class="bonus-price">FREE</div>
+      </div>
+      <div class="bonus-item">
+        <div class="bonus-icon">📰</div>
+        <div class="bonus-name">Blogger</div>
+        <div class="bonus-desc">Blog, landing pages, SEO content</div>
+        <div class="bonus-price">FREE</div>
+      </div>
+      <div class="bonus-item">
+        <div class="bonus-icon">📧</div>
+        <div class="bonus-name">MailerLite</div>
+        <div class="bonus-desc">Email list up to 1,000 subscribers</div>
+        <div class="bonus-price">FREE</div>
+      </div>
+      <div class="bonus-item">
+        <div class="bonus-icon">⚡</div>
+        <div class="bonus-name">N8N</div>
+        <div class="bonus-desc">Workflow automation engine</div>
+        <div class="bonus-price">FREE</div>
+      </div>
+      <div class="bonus-item">
+        <div class="bonus-icon">🔗</div>
+        <div class="bonus-name">LeadsLeap</div>
+        <div class="bonus-desc">Free traffic + link tracking</div>
+        <div class="bonus-price">FREE</div>
+      </div>
+      <div class="bonus-item">
+        <div class="bonus-icon">🛒</div>
+        <div class="bonus-name">Beacons</div>
+        <div class="bonus-desc">Product delivery + storefront</div>
+        <div class="bonus-price">FREE</div>
+      </div>
+      <div class="bonus-item">
+        <div class="bonus-icon">📊</div>
+        <div class="bonus-name">Google Sheets</div>
+        <div class="bonus-desc">Sales tracking + analytics</div>
+        <div class="bonus-price">FREE</div>
+      </div>
+      <div class="bonus-item">
+        <div class="bonus-icon">📅</div>
+        <div class="bonus-name">Buffer</div>
+        <div class="bonus-desc">Social media scheduling</div>
+        <div class="bonus-price">FREE</div>
+      </div>
+      <div class="bonus-item">
+        <div class="bonus-icon">🤖</div>
+        <div class="bonus-name">ChatGPT / Claude</div>
+        <div class="bonus-desc">Content creation + strategy</div>
+        <div class="bonus-price">FREE</div>
+      </div>
+      <div class="bonus-item">
+        <div class="bonus-icon">📈</div>
+        <div class="bonus-name">Google Analytics</div>
+        <div class="bonus-desc">Traffic + conversion tracking</div>
+        <div class="bonus-price">FREE</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:1.5rem;">
+      <p style="font-size:1.1rem;font-weight:700;">Total monthly cost: <span style="color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:2rem;">$0</span></p>
+      <p style="font-size:0.85rem;color:var(--muted);">This stack replaces $310/month in paid software. That's $3,720/year you keep.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MID-PAGE CTA -->
+<div class="mid-cta">
+  <div class="s-eyebrow">You Just Got The Map For Free</div>
+  <div class="s-title" style="max-width:700px;margin:0 auto 1rem;">Now Do You Want The <span class="gold">Engine?</span></div>
+  <p class="s-lead" style="max-width:600px;margin:0 auto 2rem;">The 7-Day Plan tells you what to do. The $17 Traffic System automates the entire cycle so you build once and sell forever.</p>
+  <a href="http://llclick.com/bg2p3jmw/" class="btn-primary" style="font-size:1.05rem;">GET THE $17 AUTOMATION SYSTEM →</a>
+</div>
+
+<!-- UPGRADE BOX -->
+<section class="section upgrade-section" id="upgrade">
+  <div class="section-inner">
+    <div class="s-eyebrow">The Cheat Code</div>
+    <div class="s-title">The Plan Is Your Map. <span class="gold">This Is Your Engine.</span></div>
+    <p class="s-lead">Everything in the $17 system is designed to eliminate the manual work from the 7-Day Plan and put it on autopilot.</p>
+
+    <div class="upgrade-box">
+      <div class="s-eyebrow" style="margin-bottom:0.5rem;">The Full Traffic Automation System</div>
+      <div class="s-title" style="font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:0.5rem;">Everything You Need To <span class="gold">Automate Your Sales</span></div>
+
+      <div class="price-row">
+        <div class="price-old">$97</div>
+        <div class="price-new">$17</div>
+        <div class="price-label">One-time payment. Lifetime access.</div>
+      </div>
+
+      <ul class="includes-list">
+        <li><span class="il-check">✓</span><span><strong>The 7-Day Starter Kit</strong> — everything you just read, plus worksheets and templates</span></li>
+        <li><span class="il-check">✓</span><span><strong>The AI Search Hustle Guide</strong> — how to use AI to create content that ranks on Google and Pinterest</span></li>
+        <li><span class="il-check">✓</span><span><strong>The Pinterest Traffic Engine</strong> — exact pin templates, SEO descriptions, and scheduling system</span></li>
+        <li><span class="il-check">✓</span><span><strong>The Newsjack Blueprint</strong> — turn trending Google searches into affiliate leads while you sleep</span></li>
+        <li><span class="il-check">✓</span><span><strong>The $0 Ad Stack</strong> — complete free tool stack replacing $300/month in paid software</span></li>
+        <li><span class="il-check">✓</span><span><strong>N8N Automation Templates</strong> — copy-paste workflows for lead capture, delivery, and follow-up</span></li>
+        <li><span class="il-check">✓</span><span><strong>Context Bridge Templates</strong> — Reddit and Facebook post formulas that drive clicks without getting flagged</span></li>
+        <li><span class="il-check">✓</span><span><strong>30 Pinterest Pin Descriptions</strong> — SEO-optimized, ready to use, plug in your product name</span></li>
+        <li><span class="il-check">✓</span><span><strong>Conversion Psychology Cheat Sheet</strong> — why people buy and how to position your offer</span></li>
+        <li><span class="il-check">✓</span><span><strong>Lifetime Updates</strong> — every new system or template added, you get it automatically</span></li>
+      </ul>
+
+      <div style="text-align:center;margin-top:2rem;">
+        <a href="http://llclick.com/bg2p3jmw/" class="btn-primary" style="font-size:1.1rem;padding:1.2rem 3rem;">CLAIM THE $17 SYSTEM →</a>
+        <p style="font-size:0.75rem;color:var(--muted);margin-top:0.8rem;">Instant access. No subscription. No hidden fees.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="section" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="section-inner">
+    <div class="s-eyebrow">The Numbers</div>
+    <div class="s-title">The <span class="gold">Invisible Factory</span> In Action</div>
+
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-stat">$0</div>
+        <div class="proof-label">Monthly Ad Spend</div>
+        <div class="proof-desc">Every traffic source is free. Pinterest, Blogger, Medium, Reddit, LeadsLeap. Zero paid ads.</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stat">5 YRS</div>
+        <div class="proof-label">Pin Lifespan</div>
+        <div class="proof-desc">One optimized pin drives traffic for years. One TikTok dies in 48 hours.</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stat">$3,720</div>
+        <div class="proof-label">Annual Savings</div>
+        <div class="proof-desc">The free stack replaces $310/month in paid tools. Money in your pocket before your first sale.</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stat">24/7</div>
+        <div class="proof-label">System Uptime</div>
+        <div class="proof-desc">Automation runs without you. Capture lead. Process payment. Deliver product. All while you sleep.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section">
+  <div class="section-inner">
+    <div class="s-eyebrow">The Real Choice</div>
+    <div class="s-title">Two Paths. <span class="gold">One Decision.</span></div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:2rem 0;">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.8rem;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--red);margin-bottom:1rem;">The Manual Way</div>
+        <ul style="list-style:none;font-size:0.85rem;line-height:2;">
+          <li>✗ Post daily and hope something sticks</li>
+          <li>✗ Pay $300/month for tools you don't need yet</li>
+          <li>✗ Manually send every email and every link</li>
+          <li>✗ Burn out in 30 days</li>
+          <li>✗ Zero sales after months of work</li>
+          <li>✗ Start over from scratch every single time</li>
+        </ul>
+      </div>
+      <div style="background:var(--card);border:2px solid var(--gold);border-radius:12px;padding:1.8rem;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--gold);margin-bottom:1rem;">The Invisible Factory Way</div>
+        <ul style="list-style:none;font-size:0.85rem;line-height:2;">
+          <li>✓ Search-driven content that compounds daily</li>
+          <li>✓ $0/month free tool stack from day one</li>
+          <li>✓ Fully automated delivery and follow-up</li>
+          <li>✓ 2 hours/week maintenance after setup</li>
+          <li>✓ Sales come in while you sleep</li>
+          <li>✓ Build once and sell forever</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="section-inner">
+    <div class="s-eyebrow">Questions</div>
+    <div class="s-title"><span class="gold">FAQ</span></div>
+
+    <div class="faq-list">
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Do I need any tech skills?<span class="arrow">▼</span></div>
+        <div class="faq-a"><p>No. If you can copy and paste you can run this system. Everything is step-by-step with templates. All tools are free and beginner-friendly.</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">What if I don't have a product yet?<span class="arrow">▼</span></div>
+        <div class="faq-a"><p>Day 1 and Day 2 of the free plan above walk you through creating your first digital product from scratch using AI and Canva. You'll have something to sell by Day 3.</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Is this just another course?<span class="arrow">▼</span></div>
+        <div class="faq-a"><p>No. This is a system with templates, automation workflows, and copy-paste tools. You don't watch 40 hours of video. You execute the steps and launch.</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Why is it only $17?<span class="arrow">▼</span></div>
+        <div class="faq-a"><p>Because FreeGameGuys exists to prove you can build a real business without spending thousands. If we charged $997 we'd be the gurus we're teaching you to avoid.</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Do I need to run paid ads?<span class="arrow">▼</span></div>
+        <div class="faq-a"><p>No. The entire system runs on free traffic — Pinterest, Blogger SEO, Medium, Reddit, and LeadsLeap. Zero ad spend required.</p></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">I already read the free plan above. Why would I pay $17?<span class="arrow">▼</span></div>
+        <div class="faq-a"><p>The free plan is the map. The $17 system is the engine. It includes automation templates, done-for-you copy, N8N workflows, and the conversion psychology that turns traffic into sales. It saves you 100+ hours of figuring it out yourself.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section final-cta">
+  <div class="section-inner" style="max-width:700px;">
+    <div class="s-eyebrow">Last Call</div>
+    <div class="s-title">You Just Read The Entire <span class="gold">7-Day Plan For Free.</span></div>
+    <p class="s-lead" style="max-width:600px;margin:0 auto 1rem;">You know it works. You know the tools are free. You know the system is real. The only question is — do you want to do it manually or let the engine handle it?</p>
+    <p class="s-lead" style="max-width:600px;margin:0 auto 2rem;">The $17 system saves you 100+ hours. That's less than the cost of two coffees for a machine that runs your business while you sleep.</p>
+
+    <a href="http://llclick.com/bg2p3jmw/" class="btn-primary" style="font-size:1.1rem;padding:1.2rem 3rem;">CLAIM THE $17 SYSTEM NOW →</a>
+
+    <div class="guarantee-badge">
+      🔒 One-time payment. Lifetime access. No subscriptions. No hidden fees.
+    </div>
+  </div>
+</section>
+
+<!-- LEADSLEAP -->
+<section class="section" style="text-align:center;">
+  <div class="section-inner">
+    <div class="s-eyebrow">Powered By</div>
+    <div style="margin:1.5rem 0;padding:1.5rem;background:var(--card);border:1px solid var(--border);border-radius:12px;">
+      <script data-cfasync="false">ll_r="freegameguys";ll_bc="#ffffff";ll_hc="#e22121";ll_tc="#555a69";ll_cc="#8d9aa6";ll_dc="#8891a8";ll_w="";ll_nf="0";ll_nc="1";ll_nh="0";ll_nm="0";ll_np="1";ll_pa="0";ll_nt="0";ll_wt="1";ll_fw="1";ll_n="1";ll_cl="";ll_s="w";</script><script data-cfasync="false" src="https://w.leadsleap.com/js.js"></script>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">FreeGameGuys</div>
+  <div class="footer-links">
+    <a href="https://freegameguys.blogspot.com">Blog</a>
+    <a href="https://youtube.com/@freegameguys?sub_confirmation=1">YouTube</a>
+    <a href="https://www.pinterest.com/FreeGameGuys/">Pinterest</a>
+    <a href="https://www.tiktok.com/@freegameguys">TikTok</a>
+    <a href="https://beacons.ai/freegameguys">Beacons</a>
+    <a href="https://medium.com/@ceoboney">Medium</a>
+  </div>
+  <div class="footer-copy">© 2026 FreeGameGuys · The Invisible Factory · No ads. No hype. Just systems that work while you sleep.</div>
+</footer>
+
+</body>
+</html>
