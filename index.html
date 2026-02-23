@@ -334,6 +334,100 @@
   .price-display .now { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: var(--gold); line-height: 1; }
   .price-display .sub { font-size: 0.72rem; color: var(--muted); }
 
+  /* FREE PDF SECTION */
+  .free-pdf-section {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+    padding: 5rem 2rem;
+  }
+  .pdf-card {
+    max-width: 620px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(56,189,248,0.06) 0%, rgba(245,200,66,0.04) 100%);
+    border: 2px solid var(--gold);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .pdf-card::before {
+    content: 'FREE';
+    position: absolute; top: 1.2rem; right: -1.2rem;
+    background: var(--green); color: #000;
+    font-size: 0.6rem; font-weight: 800; letter-spacing: 0.15em;
+    padding: 0.2rem 2rem; transform: rotate(45deg);
+  }
+  .pdf-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .pdf-card .pdf-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1.05;
+    margin-bottom: 0.5rem;
+  }
+  .pdf-card .pdf-title span { color: var(--gold); }
+  .pdf-card .pdf-subtitle {
+    font-size: 0.9rem;
+    color: var(--blue);
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+  }
+  .pdf-card .pdf-desc {
+    font-size: 0.88rem;
+    color: #8888aa;
+    line-height: 1.65;
+    max-width: 480px;
+    margin: 0 auto 1.5rem;
+  }
+  .pdf-features {
+    list-style: none;
+    text-align: left;
+    max-width: 420px;
+    margin: 0 auto 1.8rem;
+  }
+  .pdf-features li {
+    font-size: 0.82rem;
+    color: var(--text);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+  .pdf-features li:last-child { border-bottom: none; }
+  .pdf-features li .pf-check { color: var(--green); font-weight: 700; flex-shrink: 0; }
+  .pdf-dl-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--green);
+    color: #000;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    padding: 1rem 2.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  .pdf-dl-btn:hover {
+    background: #00c966;
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(0,232,122,0.3);
+  }
+  .pdf-note {
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 1rem;
+  }
+
   /* FOOTER */
   footer {
     background: var(--bg); border-top: 1px solid var(--border);
@@ -656,6 +750,37 @@
   </div>
 </section>
 
+<!-- FREE PDF DOWNLOAD -->
+<section class="free-pdf-section" id="free-pdf">
+  <div class="section-inner">
+    <div class="s-eyebrow">🎁 Free Download · No Email Required</div>
+    <div class="s-title" style="margin-bottom:1.5rem;">Get The <span class="gold">AI Search Hustle Blueprint</span> — Free</div>
+
+    <div class="pdf-card">
+      <div class="pdf-icon">📘</div>
+      <div class="pdf-title">THE AI SEARCH<br/><span>HUSTLE BLUEPRINT</span></div>
+      <div class="pdf-subtitle">Marketing Blueprint by FreeGameGuys</div>
+      <div class="pdf-desc">Stop guessing. Stop chasing trends. This free blueprint shows you how to use AI + search intent to make your first digital sale — with a proven 3-asset system that converts on autopilot.</div>
+
+      <ul class="pdf-features">
+        <li><span class="pf-check">✓</span> The Search Intent Formula — 3 traffic levels & which ones actually make money</li>
+        <li><span class="pf-check">✓</span> The Simple AI Search Method — find real buyer demand in 3 steps</li>
+        <li><span class="pf-check">✓</span> The 3 Asset System — Search content → Lead magnet → Paid offer</li>
+        <li><span class="pf-check">✓</span> Why most people never make a sale (and how to fix it)</li>
+        <li><span class="pf-check">✓</span> The upgrade path — from free guide to full automation machine</li>
+        <li><span class="pf-check">✓</span> Real case example: How one blog post can rank and convert for years</li>
+      </ul>
+
+      <a href="https://freegameguys.blogspot.com/p/the-ai-search-hustle-blueprint.html" target="_blank" class="pdf-dl-btn">📥 Download Free PDF Now</a>
+      <div class="pdf-note">No email required. No signup. Just instant access.</div>
+    </div>
+
+    <div class="pull-quote" style="max-width:500px;margin:2rem auto 0;">
+      <p>"This free guide shows you how search works. The $9 system shows you how to dominate it."</p>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section class="section" id="pricing">
   <div class="section-inner">
@@ -678,7 +803,7 @@
       </div>
       <div class="tier hero-tier">
         <div class="rec-tag">Most Popular</div>
-        <div class="t-price">$19</div>
+        <div class="t-price">$9</div>
         <div class="t-value">$244 value</div>
         <div class="t-name">The Tactical Playbook</div>
         <div class="t-desc">The guide + plug-and-play templates so you can execute same day.</div>
