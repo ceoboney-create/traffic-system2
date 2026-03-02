@@ -1,701 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>The Traffic Target System — $9 | FreeGameGuys</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
-<style>
-  :root {
-    --bg: #09090f;
-    --surface: #111118;
-    --card: #16161f;
-    --border: #1f1f2e;
-    --gold: #f5c842;
-    --gold2: #c8920a;
-    --red: #ff4444;
-    --green: #00e87a;
-    --blue: #38bdf8;
-    --text: #ededf5;
-    --muted: #5a5a7a;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-  }
-  body::after {
-    content: '';
-    position: fixed; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-    pointer-events: none; z-index: 9999; opacity: 0.5;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Invisible Factory | Digital Business System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #12121a;
+            --card: #1a1a28;
+            --border: #2a2a40;
+            --gold: #ffd700;
+            --gold-dim: #b8960a;
+            --text: #f5f5f5;
+            --dim: #8892b0;
+        }
 
-  /* STICKY BAR */
-  .sticky-bar {
-    position: fixed; top: 0; left: 0; right: 0;
-    background: rgba(9,9,15,0.95); border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(12px); z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0.6rem 2rem;
-  }
-  .sticky-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1rem; letter-spacing: 0.1em; color: var(--gold);
-  }
-  .sticky-cta {
-    background: var(--gold); color: #000; font-weight: 700;
-    font-size: 0.75rem; letter-spacing: 0.05em;
-    padding: 0.5rem 1.2rem; border-radius: 6px;
-    text-decoration: none; transition: all 0.2s;
-  }
-  .sticky-cta:hover { background: var(--gold2); }
-  .sticky-price { color: var(--muted); font-size: 0.7rem; margin-right: 0.8rem; }
-  .sticky-price strong { color: var(--gold); font-size: 0.85rem; }
-  .sticky-right { display: flex; align-items: center; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  /* HERO */
-  .hero {
-    min-height: 100vh; display: flex; align-items: center;
-    padding: 7rem 2rem 4rem;
-    position: relative; overflow: hidden;
-  }
-  .hero-glow {
-    position: absolute; top: 15%; left: 50%; transform: translateX(-50%);
-    width: 700px; height: 400px;
-    background: radial-gradient(ellipse, rgba(245,200,66,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-inner { max-width: 780px; margin: 0 auto; width: 100%; position: relative; text-align: center; }
-  .hero-eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1.2rem; font-weight: 600;
-    display: inline-flex; align-items: center; gap: 0.8rem;
-  }
-  .hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3rem, 10vw, 7rem);
-    line-height: 0.9; letter-spacing: 0.02em; margin-bottom: 1.5rem;
-  }
-  .hero h1 .gold { color: var(--gold); }
-  .hero h1 .dim { color: var(--muted); }
-  .hero-sub {
-    font-size: clamp(1rem, 2vw, 1.15rem);
-    color: #8888aa; max-width: 560px; margin: 0 auto 2rem; line-height: 1.7;
-  }
-  .hero-proof {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; margin-bottom: 2.5rem;
-  }
-  .hp-tag {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 6px; padding: 0.4rem 0.9rem;
-    font-size: 0.72rem; color: var(--muted); font-weight: 600;
-  }
-  .hp-tag strong { color: var(--gold); }
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-  /* CTA BUTTON */
-  .cta-btn {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    background: var(--gold); color: #000;
-    font-family: 'DM Sans', sans-serif; font-weight: 700;
-    font-size: 0.95rem; letter-spacing: 0.05em;
-    padding: 1rem 2.2rem; border-radius: 8px;
-    text-decoration: none; transition: all 0.2s;
-    border: none; cursor: pointer;
-    box-shadow: 0 0 30px rgba(245,200,66,0.15);
-  }
-  .cta-btn:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 0 40px rgba(245,200,66,0.25); }
-  .cta-btn-sub { font-size: 0.7rem; color: var(--muted); margin-top: 0.6rem; }
+        /* Background Grid */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255,215,0,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,215,0,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: 1;
+        }
 
-  /* SECTION */
-  .section { padding: 5rem 2rem; }
-  .section-inner { max-width: 780px; margin: 0 auto; }
-  .s-eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--gold); font-weight: 600; margin-bottom: 0.6rem;
-  }
-  .s-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    line-height: 1; letter-spacing: 0.02em; margin-bottom: 1rem;
-  }
-  .s-title .gold { color: var(--gold); }
-  .s-title .red { color: var(--red); }
-  .s-lead { font-size: 0.92rem; color: #8888aa; max-width: 560px; margin-bottom: 2rem; line-height: 1.7; }
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
 
-  /* AGITATION */
-  .agitation { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .pain-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; margin: 1.5rem 0; }
-  .pain-list li {
-    display: flex; align-items: flex-start; gap: 0.8rem;
-    padding: 0.8rem 1rem; background: var(--card);
-    border: 1px solid var(--border); border-radius: 8px;
-    font-size: 0.88rem; line-height: 1.5;
-  }
-  .pain-list li .px { color: var(--red); font-weight: 700; font-size: 1rem; flex-shrink: 0; }
+        /* Announcement Bar */
+        .announcement {
+            background: var(--gold);
+            color: #000;
+            text-align: center;
+            padding: 0.8rem;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
 
-  /* TRUTH BOX */
-  .truth-box {
-    background: linear-gradient(135deg, rgba(245,200,66,0.08) 0%, transparent 100%);
-    border: 1px solid rgba(245,200,66,0.2);
-    border-radius: 12px; padding: 2rem; margin: 2rem 0; text-align: center;
-  }
-  .truth-box .tb-label { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 0.8rem; }
-  .truth-box .tb-text {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(1.4rem, 4vw, 2.2rem); line-height: 1.15;
-  }
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            margin-top: 2rem;
+        }
 
-  /* QUOTE */
-  .pull-quote {
-    border-left: 3px solid var(--gold); padding: 1.2rem 1.5rem;
-    margin: 2rem 0; background: var(--surface); border-radius: 0 8px 8px 0;
-  }
-  .pull-quote p {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(1.2rem, 3vw, 1.8rem); line-height: 1.2;
-  }
+        .badge {
+            display: inline-block;
+            border: 1px solid var(--gold);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            color: var(--gold);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
 
-  /* TEASER FLOW */
-  .teaser-flow { display: flex; flex-direction: column; gap: 0; margin: 2rem 0; }
-  .tf-node {
-    display: flex; align-items: center; gap: 1rem;
-    padding: 1.1rem 1.5rem;
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 10px; transition: border-color 0.2s;
-  }
-  .tf-node:hover { border-color: var(--gold); }
-  .tf-num {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem;
-    color: var(--gold); min-width: 30px;
-  }
-  .tf-icon { font-size: 1.2rem; min-width: 28px; text-align: center; }
-  .tf-body { flex: 1; }
-  .tf-title { font-weight: 600; font-size: 0.9rem; }
-  .tf-desc { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
-  .tf-arr { text-align: center; color: var(--gold); padding: 0.3rem 0; opacity: 0.5; font-size: 1rem; }
-  .tf-locked {
-    opacity: 0.4; position: relative;
-  }
-  .tf-locked::after {
-    content: '🔒'; position: absolute; right: 1.2rem; top: 50%; transform: translateY(-50%); font-size: 1rem;
-  }
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-  /* MODULE TEASERS */
-  .mod-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.8rem; margin: 1.5rem 0; }
-  .mod-card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 10px; padding: 1.2rem; position: relative;
-    transition: all 0.2s;
-  }
-  .mod-card:hover { border-color: rgba(245,200,66,0.4); transform: translateY(-2px); }
-  .mod-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--border); line-height: 1; margin-bottom: 0.3rem; }
-  .mod-card:hover .mod-num { color: var(--gold); }
-  .mod-tag { font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 0.4rem; }
-  .mod-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; }
-  .mod-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
-  .mod-pills { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.6rem; }
-  .mpill {
-    background: rgba(245,200,66,0.08); border: 1px solid rgba(245,200,66,0.15);
-    color: #c8b060; font-size: 0.62rem; font-weight: 600;
-    padding: 0.15rem 0.5rem; border-radius: 3px;
-  }
+        .sub-headline {
+            font-size: 1.2rem;
+            color: var(--dim);
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-  /* WHAT YOU GET */
-  .stack-list { list-style: none; margin: 1.5rem 0; }
-  .stack-list li {
-    display: flex; align-items: flex-start; gap: 0.8rem;
-    padding: 0.9rem 0; border-bottom: 1px solid var(--border);
-    font-size: 0.88rem;
-  }
-  .stack-list li:last-child { border-bottom: none; }
-  .stack-list li .si { color: var(--green); font-weight: 700; flex-shrink: 0; font-size: 1rem; }
-  .stack-list li .sv { margin-left: auto; font-size: 0.72rem; color: var(--muted); text-decoration: line-through; white-space: nowrap; }
+        /* Main Offer Box */
+        .offer-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
 
-  /* OBJECTION CRUSHER */
-  .obj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.8rem; margin: 1.5rem 0; }
-  .obj-card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 10px; padding: 1.2rem;
-  }
-  .obj-q { font-weight: 700; font-size: 0.88rem; margin-bottom: 0.5rem; color: var(--text); }
-  .obj-a { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+        .offer-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle at top right, rgba(255,215,0,0.1), transparent);
+        }
 
-  /* URGENCY */
-  .urgency-bar {
-    background: linear-gradient(135deg, rgba(255,68,68,0.1) 0%, rgba(245,200,66,0.08) 100%);
-    border: 1px solid rgba(255,68,68,0.2);
-    border-radius: 10px; padding: 1.5rem 2rem; margin: 2rem 0;
-    text-align: center;
-  }
-  .urgency-bar .ub-text {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(1.2rem, 3vw, 1.8rem); line-height: 1.2;
-  }
-  .urgency-bar .ub-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.5rem; }
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--gold);
+            margin-bottom: 2rem;
+        }
 
-  /* SOCIAL PROOF */
-  .proof-strip { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin: 2rem 0; }
-  .proof-card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 10px; padding: 1.2rem; max-width: 280px; flex: 1; min-width: 240px;
-  }
-  .proof-stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 0.5rem; }
-  .proof-text { font-size: 0.82rem; color: #aaa; line-height: 1.5; font-style: italic; margin-bottom: 0.6rem; }
-  .proof-name { font-size: 0.72rem; color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+        .system-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
 
-  /* FINAL CTA */
-  .final-cta {
-    background: var(--surface); border-top: 1px solid var(--border);
-    text-align: center; padding: 5rem 2rem;
-  }
-  .cta-box {
-    max-width: 580px; margin: 0 auto;
-    background: linear-gradient(135deg, rgba(245,200,66,0.06) 0%, transparent 100%);
-    border: 2px solid rgba(245,200,66,0.3);
-    border-radius: 16px; padding: 3rem 2rem;
-    position: relative;
-  }
-  .cta-box .cta-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1; margin-bottom: 0.8rem;
-  }
-  .cta-box .cta-title span { color: var(--gold); }
-  .cta-box .cta-desc { color: #8888aa; font-size: 0.88rem; margin-bottom: 1.5rem; line-height: 1.6; max-width: 420px; margin-left: auto; margin-right: auto; }
-  .price-block { margin-bottom: 1.5rem; }
-  .price-block .was { font-size: 0.85rem; color: var(--muted); text-decoration: line-through; }
-  .price-block .now { font-family: 'Bebas Neue', sans-serif; font-size: 4.5rem; color: var(--gold); line-height: 1; }
-  .price-block .sub { font-size: 0.7rem; color: var(--muted); margin-top: 0.3rem; }
-  .guarantee {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: rgba(0,232,122,0.08); border: 1px solid rgba(0,232,122,0.25);
-    color: var(--green); font-size: 0.72rem; font-weight: 600;
-    padding: 0.4rem 1rem; border-radius: 20px; margin-top: 1rem;
-  }
+        .system-item:hover {
+            border-color: rgba(255,215,0,0.3);
+            background: rgba(255,215,0,0.05);
+        }
 
-  /* FREE PDF */
-  .free-pdf-section {
-    background: var(--bg);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    text-align: center;
-    padding: 4rem 2rem;
-  }
-  .pdf-card {
-    max-width: 560px; margin: 0 auto;
-    background: linear-gradient(135deg, rgba(56,189,248,0.05) 0%, rgba(245,200,66,0.04) 100%);
-    border: 2px solid var(--gold); border-radius: 14px;
-    padding: 2rem 1.5rem; position: relative; overflow: hidden;
-  }
-  .pdf-card::before {
-    content: 'FREE'; position: absolute; top: 1rem; right: -1.2rem;
-    background: var(--green); color: #000;
-    font-size: 0.55rem; font-weight: 800; letter-spacing: 0.15em;
-    padding: 0.15rem 2rem; transform: rotate(45deg);
-  }
-  .pdf-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
-  .pdf-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(1.5rem, 4vw, 2.2rem); line-height: 1.05; margin-bottom: 0.4rem;
-  }
-  .pdf-title span { color: var(--gold); }
-  .pdf-sub { font-size: 0.82rem; color: var(--blue); font-weight: 600; margin-bottom: 1rem; }
-  .pdf-desc { font-size: 0.82rem; color: #8888aa; line-height: 1.6; max-width: 420px; margin: 0 auto 1.2rem; }
-  .pdf-dl-btn {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--green); color: #000;
-    font-weight: 700; font-size: 0.88rem; letter-spacing: 0.05em;
-    padding: 0.8rem 1.8rem; border-radius: 8px;
-    text-decoration: none; transition: all 0.2s;
-  }
-  .pdf-dl-btn:hover { background: #00c966; transform: translateY(-2px); box-shadow: 0 0 20px rgba(0,232,122,0.3); }
-  .pdf-note { font-size: 0.65rem; color: var(--muted); margin-top: 0.8rem; }
+        .icon { font-size: 2rem; }
 
-  /* MID CTA */
-  .mid-cta {
-    text-align: center; padding: 3rem 2rem;
-    background: var(--bg);
-  }
-  .mid-cta-inner {
-    max-width: 500px; margin: 0 auto;
-    border: 1px dashed rgba(245,200,66,0.3);
-    border-radius: 12px; padding: 2rem;
-  }
-  .mid-cta-inner .mc-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.8rem; margin-bottom: 0.5rem;
-  }
-  .mid-cta-inner .mc-title span { color: var(--gold); }
-  .mid-cta-inner .mc-sub { font-size: 0.82rem; color: var(--muted); margin-bottom: 1rem; }
+        .item-text h4 {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 0.5rem;
+        }
 
-  /* FOOTER */
-  footer {
-    background: var(--bg); border-top: 1px solid var(--border);
-    padding: 2rem; text-align: center;
-    font-size: 0.72rem; color: var(--muted);
-  }
-  footer a { color: var(--gold); text-decoration: none; }
+        .item-text p {
+            font-size: 0.9rem;
+            color: var(--dim);
+        }
 
-  @media (max-width: 600px) {
-    .sticky-price { display: none; }
-    .hero h1 { font-size: clamp(2.5rem, 10vw, 5rem); }
-    .mod-grid { grid-template-columns: 1fr; }
-    .obj-grid { grid-template-columns: 1fr; }
-    .proof-strip { flex-direction: column; align-items: center; }
-  }
-</style>
+        /* Pricing Section */
+        .pricing {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--dim);
+            font-size: 1.2rem;
+            margin-right: 1rem;
+        }
+
+        .new-price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            color: var(--gold);
+            font-weight: 900;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            background: var(--gold);
+            color: #000;
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 12px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,215,0,0.3);
+        }
+
+        .guarantee {
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            color: var(--dim);
+        }
+
+        /* Final Push */
+        .scarcity {
+            margin-top: 4rem;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255,215,0,0.05);
+            border: 1px dashed var(--gold);
+            border-radius: 16px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 5rem;
+            padding: 3rem;
+            border-top: 1px solid var(--border);
+            color: var(--dim);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .offer-box { padding: 1.5rem; }
+            h1 { font-size: 2.5rem; }
+            .new-price { font-size: 2.5rem; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- STICKY NAV -->
-<nav class="sticky-bar">
-  <div class="sticky-logo">FreeGameGuys</div>
-  <div class="sticky-right">
-    <span class="sticky-price"><s style="color:#555;">$497</s> <strong>$9</strong></span>
-    <a href="https://llclick.com/bg2p3jmw/" class="sticky-cta">GET INSTANT ACCESS →</a>
-  </div>
-</nav>
+    <div class="announcement">FLASH SALE: GET THE FULL SYSTEM FOR $1 TODAY ONLY</div>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- HERO -->
-<!-- ═══════════════════════════════════════ -->
-<section class="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-inner">
-    <div class="hero-eyebrow">⚡ The System That Replaced Posting Into The Void</div>
-    <h1>
-      STOP<br/>
-      <span class="gold">GUESSING.</span><br/>
-      START<br/>
-      <span class="dim">SELLING.</span>
-    </h1>
-    <p class="hero-sub">The exact 4-part free traffic system that turns strangers into buyers — without ads, without followers, without posting daily. Built for digital product sellers who are done gambling with algorithms.</p>
-    <div class="hero-proof">
-      <span class="hp-tag">💰 <strong>$0</strong> Ad Spend</span>
-      <span class="hp-tag">⚡ <strong>4</strong> Core Modules</span>
-      <span class="hp-tag">📋 <strong>Done-For-You</strong> Templates</span>
-      <span class="hp-tag">🔒 <strong>Lifetime</strong> Access</span>
-    </div>
-    <a href="https://llclick.com/bg2p3jmw/" class="cta-btn">Get The Full System — Just $9 →</a>
-    <div class="cta-btn-sub">One-time payment · Instant delivery · No subscription</div>
-  </div>
-</section>
+    <div class="container">
+        <header>
+            <div class="badge">Limited Release Business System</div>
+            <h1>THE INVISIBLE FACTORY</h1>
+            <p class="sub-headline">Stop chasing algorithms. Build a high-margin digital empire using search intent and AI automation.</p>
+        </header>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- AGITATION -->
-<!-- ═══════════════════════════════════════ -->
-<section class="section agitation">
-  <div class="section-inner">
-    <div class="s-eyebrow">Sound Familiar?</div>
-    <div class="s-title">You're Doing <span class="red">Everything Right</span> — And Nothing's Working.</div>
-    <p class="s-lead">You built the product. You posted on 5 platforms. You watched 100 tutorials. And still… crickets. Here's why:</p>
+        <div class="offer-box">
+            <h2>The Complete Turnkey Bundle</h2>
+            
+            <div class="system-item">
+                <div class="icon">🤖</div>
+                <div class="item-text">
+                    <h4>AI Search Hustle Blueprint</h4>
+                    <p>Learn the Search Intent Formula. Identify real buyer demand using AI and turn that data into automated income streams.</p>
+                </div>
+            </div>
 
-    <ul class="pain-list">
-      <li><span class="px">✗</span> You're posting daily with no central destination — traffic goes everywhere and converts nowhere</li>
-      <li><span class="px">✗</span> You're sending cold strangers straight to a sales page they're not ready for</li>
-      <li><span class="px">✗</span> You're creating content from scratch every day like it's a second job</li>
-      <li><span class="px">✗</span> You're chasing algorithms instead of building a system that works while you sleep</li>
-      <li><span class="px">✗</span> You have 10 links in your bio and wonder why nobody clicks any of them</li>
-      <li><span class="px">✗</span> You've spent more on courses about selling than you've made from selling</li>
-    </ul>
+            <div class="system-item">
+                <div class="icon">📘</div>
+                <div class="item-text">
+                    <h4>7-Day Launch Playbook</h4>
+                    <p>The step-by-step framework to create, brand, and launch your first digital product in exactly one week.</p>
+                </div>
+            </div>
 
-    <div class="truth-box">
-      <div class="tb-label">Here's The Truth Nobody Tells You</div>
-      <div class="tb-text">
-        You don't have a traffic problem.<br/>
-        You don't have a product problem.<br/>
-        <span style="color:var(--gold);">You have a structure problem.</span>
-      </div>
-    </div>
+            <div class="system-item">
+                <div class="icon">🎯</div>
+                <div class="item-text">
+                    <h4>Traffic Target System</h4>
+                    <p>The 4-part operating system for generating targeted traffic without spending a single cent on paid advertising.</p>
+                </div>
+            </div>
 
-    <div class="pull-quote">
-      <p>"Traffic without structure is just noise. Structure is what turns attention into money."</p>
-    </div>
-
-    <div style="text-align:center;margin-top:2rem;">
-      <a href="https://llclick.com/bg2p3jmw/" class="cta-btn">Fix Your Structure — $9 →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- THE SYSTEM TEASER -->
-<!-- ═══════════════════════════════════════ -->
-<section class="section">
-  <div class="section-inner">
-    <div class="s-eyebrow">Inside The Traffic Target System</div>
-    <div class="s-title">The 4-Part <span class="gold">Machine</span> That Sells For You</div>
-    <p class="s-lead">This isn't a course. It's a system. Four interlocking parts that turn free platforms into a revenue engine. Here's a preview of the architecture:</p>
-
-    <div class="teaser-flow">
-      <div class="tf-node">
-        <div class="tf-num">01</div>
-        <div class="tf-icon">📌</div>
-        <div class="tf-body">
-          <div class="tf-title">The Signal</div>
-          <div class="tf-desc">Stop the scroll. Grab attention on Pinterest, TikTok, X — in under 3 seconds.</div>
+            <div class="pricing">
+                <p style="color: var(--dim); margin-bottom: 0.5rem; font-weight: 600; text-transform: uppercase; font-size: 0.8rem;">Lifetime Access Total Value: $197</p>
+                <span class="old-price">$97</span>
+                <span class="new-price">$1</span>
+                
+                <a href="https://llclick.com/vdn7mzm6/" class="cta-button">Instant Access to The Factory</a>
+                <p class="guarantee">One-time payment. Lifetime updates. No monthly fees.</p>
+            </div>
         </div>
-      </div>
-      <div class="tf-arr">↓</div>
-      <div class="tf-node">
-        <div class="tf-num">02</div>
-        <div class="tf-icon">💬</div>
-        <div class="tf-body">
-          <div class="tf-title">The Bridge</div>
-          <div class="tf-desc">Build trust with value posts on Reddit, Facebook, LinkedIn — without getting flagged.</div>
+
+        <div class="scarcity">
+            <h4 style="font-family: 'Orbitron'; color: var(--gold); margin-bottom: 0.5rem;">🚨 WHY IS IT $1?</h4>
+            <p style="font-size: 0.9rem;">We want to remove every possible barrier to entry. We're building a community of successful digital entrepreneurs. Once we hit our capacity for this launch cycle, the price returns to $97.</p>
         </div>
-      </div>
-      <div class="tf-arr">↓</div>
-      <div class="tf-node tf-locked">
-        <div class="tf-num">03</div>
-        <div class="tf-icon">📄</div>
-        <div class="tf-body">
-          <div class="tf-title">The Anchor</div>
-          <div class="tf-desc">The deep-dive content piece that does 80% of the selling for you...</div>
-        </div>
-      </div>
-      <div class="tf-arr">↓</div>
-      <div class="tf-node tf-locked">
-        <div class="tf-num">💵</div>
-        <div class="tf-icon">🎯</div>
-        <div class="tf-body">
-          <div class="tf-title">The Checkout</div>
-          <div class="tf-desc">One link. One offer. One action. The conversion point where money enters your account.</div>
-        </div>
-      </div>
+
+        <footer>
+            <p>FREEGAMEGUYS &copy; 2026. THE INVISIBLE FACTORY.</p>
+            <p style="margin-top: 1rem;">Teaching real people how to build real digital businesses. No hype. Just systems.</p>
+        </footer>
     </div>
-
-    <div class="truth-box">
-      <div class="tb-label">The Full Blueprint</div>
-      <div class="tb-text" style="font-size:clamp(1.2rem,3vw,1.6rem);">
-        The complete system — every step, every template, every shortcut — is inside.<br/>
-        <span style="color:var(--gold);">All 4 parts. Fully unlocked. For $9.</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- MODULE TEASERS -->
-<!-- ═══════════════════════════════════════ -->
-<section class="section" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
-  <div class="section-inner">
-    <div class="s-eyebrow">What's Inside</div>
-    <div class="s-title">4 Modules. <span class="gold">Zero Fluff.</span></div>
-    <p class="s-lead">Each module solves a specific bottleneck between "I have a product" and "I just made a sale."</p>
-
-    <div class="mod-grid">
-      <div class="mod-card">
-        <div class="mod-num">01</div>
-        <div class="mod-tag">$97 Value</div>
-        <div class="mod-title">Traffic Foundations</div>
-        <div class="mod-desc">Rewire how you think about attention. The "One Destination" rule. The 4 traffic sources. The hub strategy.</div>
-        <div class="mod-pills">
-          <span class="mpill">Attention Mechanics</span>
-          <span class="mpill">Hub Strategy</span>
-        </div>
-      </div>
-      <div class="mod-card">
-        <div class="mod-num">02</div>
-        <div class="mod-tag">$147 Value</div>
-        <div class="mod-title">Platform Leverage</div>
-        <div class="mod-desc">Turn one idea into 10 visibility assets across platforms. The repurpose engine. Zero shadowban deployment.</div>
-        <div class="mod-pills">
-          <span class="mpill">Repurpose Engine</span>
-          <span class="mpill">Engagement Stacking</span>
-        </div>
-      </div>
-      <div class="mod-card">
-        <div class="mod-num">03</div>
-        <div class="mod-tag">$97 Value</div>
-        <div class="mod-title">Conversion Alignment</div>
-        <div class="mod-desc">Traffic-to-offer matching formula. Headline frameworks. High-clarity landing page architecture.</div>
-        <div class="mod-pills">
-          <span class="mpill">Offer Positioning</span>
-          <span class="mpill">CTA Structure</span>
-        </div>
-      </div>
-      <div class="mod-card">
-        <div class="mod-num">04</div>
-        <div class="mod-tag">$156 Value</div>
-        <div class="mod-title">Authority Acceleration</div>
-        <div class="mod-desc">The Micro-Proof Loop. Trust engineering. How to look like the expert before you feel like one.</div>
-        <div class="mod-pills">
-          <span class="mpill">Trust Engineering</span>
-          <span class="mpill">Micro-Proof Loop</span>
-        </div>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:2rem;">
-      <a href="https://llclick.com/bg2p3jmw/" class="cta-btn">Unlock All 4 Modules — $9 →</a>
-      <div class="cta-btn-sub">Total value: $497. You pay $9. One time. Forever.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- MID CTA BREAK -->
-<!-- ═══════════════════════════════════════ -->
-<section class="mid-cta">
-  <div class="mid-cta-inner">
-    <div class="mc-title">Still Scrolling? <span>That's The Problem.</span></div>
-    <div class="mc-sub">You already know this is what you need. The system costs less than a lunch. Stop consuming. Start building.</div>
-    <a href="https://llclick.com/bg2p3jmw/" class="cta-btn">Get The System — $9 →</a>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- WHAT YOU GET STACK -->
-<!-- ═══════════════════════════════════════ -->
-<section class="section">
-  <div class="section-inner">
-    <div class="s-eyebrow">The Full Stack</div>
-    <div class="s-title">Everything You Get <span class="gold">For $9</span></div>
-    <p class="s-lead">This isn't drip-fed over 8 weeks. You get everything the moment you buy.</p>
-
-    <ul class="stack-list">
-      <li><span class="si">✓</span> The Traffic Target System — Complete 4-Part Framework (PDF) <span class="sv">$97</span></li>
-      <li><span class="si">✓</span> Platform Leverage Playbook — Deployment strategies for 6 platforms <span class="sv">$147</span></li>
-      <li><span class="si">✓</span> Conversion Alignment Guide — Landing page + offer positioning <span class="sv">$97</span></li>
-      <li><span class="si">✓</span> Authority Acceleration Module — The Micro-Proof Loop <span class="sv">$156</span></li>
-      <li><span class="si">✓</span> 14-Day Activation Sprint — Daily action checklist <span class="sv">$47</span></li>
-      <li><span class="si">✓</span> Context Bridge Template — Reddit/Facebook copy-paste formula <span class="sv">$27</span></li>
-      <li><span class="si">✓</span> 30 Pinterest Pin Descriptions — Plug-and-post copy pack <span class="sv">$37</span></li>
-      <li><span class="si">✓</span> The AI Search Hustle Blueprint — Future-proof positioning guide <span class="sv">$47</span></li>
-      <li><span class="si">✓</span> Lifetime Access — No subscriptions. No renewals. Ever. <span class="sv">Priceless</span></li>
-    </ul>
-
-    <div class="urgency-bar">
-      <div class="ub-text">Total Value: <span style="text-decoration:line-through;color:var(--muted);">$655</span> → You Pay: <span style="color:var(--gold);">$9</span></div>
-      <div class="ub-sub">That's 98% off. Less than a fast food meal. For a system that can change how you earn money forever.</div>
-    </div>
-
-    <div style="text-align:center;">
-      <a href="https://llclick.com/bg2p3jmw/" class="cta-btn">Claim Everything — Just $9 →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- SOCIAL PROOF -->
-<!-- ═══════════════════════════════════════ -->
-<section class="section" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
-  <div class="section-inner" style="text-align:center;">
-    <div class="s-eyebrow">What People Are Saying</div>
-    <div class="s-title">Real Results. <span class="gold">Real People.</span></div>
-
-    <div class="proof-strip">
-      <div class="proof-card">
-        <div class="proof-stars">★★★★★</div>
-        <div class="proof-text">"I was posting 3x a day on 4 platforms and making zero sales. Set up the system on a Sunday, got my first sale by Wednesday. Wish I found this sooner."</div>
-        <div class="proof-name">— Side Hustle Seller</div>
-      </div>
-      <div class="proof-card">
-        <div class="proof-stars">★★★★★</div>
-        <div class="proof-text">"The flow architecture alone is worth 100x the price. I finally understand WHY my traffic wasn't converting. Completely changed my approach."</div>
-        <div class="proof-name">— Digital Product Creator</div>
-      </div>
-      <div class="proof-card">
-        <div class="proof-stars">★★★★★</div>
-        <div class="proof-text">"For $9 this is criminal. The Pinterest copy pack alone saved me 20+ hours. And the Context Bridge template? I posted it and got 47 clicks in one day."</div>
-        <div class="proof-name">— Etsy + Gumroad Seller</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- OBJECTION CRUSHER -->
-<!-- ═══════════════════════════════════════ -->
-<section class="section">
-  <div class="section-inner">
-    <div class="s-eyebrow">Fair Questions</div>
-    <div class="s-title">Let's Address The <span class="gold">Elephant</span></div>
-
-    <div class="obj-grid">
-      <div class="obj-card">
-        <div class="obj-q">"Why is it only $9?"</div>
-        <div class="obj-a">Because FreeGameGuys exists to prove you don't need to spend thousands to build a real online business. $9 removes all excuses. If you can't invest $9, this game isn't for you.</div>
-      </div>
-      <div class="obj-card">
-        <div class="obj-q">"Is this just another PDF ebook?"</div>
-        <div class="obj-a">No. It's a system with templates, copy-paste formulas, checklists, and plug-and-play workflows. You're not reading — you're building.</div>
-      </div>
-      <div class="obj-card">
-        <div class="obj-q">"I don't have a product yet."</div>
-        <div class="obj-a">Module 1 walks you through choosing and positioning your offer. You don't need a product library. You need one product and one system.</div>
-      </div>
-      <div class="obj-card">
-        <div class="obj-q">"Do I need to run paid ads?"</div>
-        <div class="obj-a">Zero. The entire system runs on free traffic. Pinterest, Reddit, Facebook Groups, X, LinkedIn. No ad spend required. Ever.</div>
-      </div>
-      <div class="obj-card">
-        <div class="obj-q">"What if it doesn't work for me?"</div>
-        <div class="obj-a">If you follow the 14-day sprint and don't see results, you didn't lose anything except $9 and some effort. But if it does work? You've built a machine.</div>
-      </div>
-      <div class="obj-card">
-        <div class="obj-q">"I've bought stuff like this before."</div>
-        <div class="obj-a">This isn't motivation. This isn't theory. It's a mechanical system. If you've failed before, it's because you had information — not structure. This gives you structure.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- FREE PDF DOWNLOAD -->
-<!-- ═══════════════════════════════════════ -->
-<section class="free-pdf-section">
-  <div class="section-inner">
-    <div class="s-eyebrow">🎁 Free Bonus Preview</div>
-    <div class="s-title" style="margin-bottom:1.2rem;">Download The <span class="gold">AI Search Hustle Blueprint</span> — Free</div>
-
-    <div class="pdf-card">
-      <div class="pdf-icon">📘</div>
-      <div class="pdf-title">THE AI SEARCH<br/><span>HUSTLE BLUEPRINT</span></div>
-      <div class="pdf-sub">Marketing Blueprint by FreeGameGuys</div>
-      <div class="pdf-desc">Learn how to use AI + search intent to attract buyers who are already looking for what you sell. The 3-asset system explained. Free. No strings.</div>
-      <a href="https://freegameguys.blogspot.com/p/the-ai-search-hustle-blueprint.html" target="_blank" class="pdf-dl-btn">📥 Download Free PDF</a>
-      <div class="pdf-note">No email required. No signup. Instant access.</div>
-    </div>
-
-    <div class="pull-quote" style="max-width:480px;margin:2rem auto 0;">
-      <p>"This free guide shows you how search works. The $9 system shows you how to dominate it."</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- FINAL CTA -->
-<!-- ═══════════════════════════════════════ -->
-<section class="final-cta">
-  <div class="cta-box">
-    <div class="s-eyebrow" style="margin-bottom:1rem;">Last Call</div>
-    <div class="cta-title">YOU JUST READ THE PITCH.<br/><span>NOW BUILD THE MACHINE.</span></div>
-    <div class="cta-desc">The system costs less than lunch. It delivers more than most $500 courses. You get everything instantly. No drip. No gates. No BS.</div>
-    <div class="price-block">
-      <div class="was">Total Value: $655</div>
-      <div class="now">$9</div>
-      <div class="sub">One-time payment · Lifetime access · Instant delivery</div>
-    </div>
-    <a href="https://llclick.com/bg2p3jmw/" class="cta-btn" style="font-size:1.05rem;padding:1.1rem 2.8rem;">
-      ⚡ Claim The Traffic Target System — $9 ⚡
-    </a>
-    <div class="guarantee">🔒 One payment. No subscriptions. No hidden fees. Yours forever.</div>
-    <p style="font-size:0.68rem;color:var(--muted);margin-top:1.2rem;">Delivered instantly to your inbox. Start building tonight.</p>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 FreeGameGuys · <a href="https://beacons.ai/freegameguys">Beacons</a> · <a href="https://freegameguys.blogspot.com">Blog</a> · <a href="https://youtube.com/@freegameguys?sub_confirmation=1">YouTube</a> · <a href="https://www.pinterest.com/FreeGameGuys/">Pinterest</a> · <a href="https://www.tiktok.com/@freegameguys">TikTok</a> · <a href="https://medium.com/@ceoboney">Medium</a></p>
-  <p style="margin-top:0.5rem;">No ads. No hype. Just systems that work while you sleep.</p>
-</footer>
 
 </body>
 </html>
